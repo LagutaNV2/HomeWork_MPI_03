@@ -25,68 +25,65 @@ def gen_headers():
     return headers.generate()
 
 
-response = requests.get("https://spb.hh.ru/search/vacancy?text=python&area=1&area=2", headers=gen_headers())
-if response.status_code == 200:
-    main_html = response.text
-    main_soup = BeautifulSoup(main_html, "lxml")
-    vacancies_list_tag = main_soup.find("main", class_="vacancy-serp-content")
-    vacancies_tags = vacancies_list_tag.find_all(class_="vacancy-serp-item-body")
-    vacancies_parsed = []
-    count = 0
-    for vacance_tag in vacancies_tags:
-        h3_tag = vacance_tag.find("h3", class_="bloko-header-section-3")
-        a_tag = h3_tag.find("a")
-        link_1 = a_tag["href"]
-        print('link:', link_1)
-        title = h3_tag.text.strip() if h3_tag else "название vacance не загрузилось"
-        salary_tag = vacance_tag.find("span", class_="bloko-header-section-2")
-        salary = salary_tag.text.strip().replace('\u202f', '').replace('\xa0', '') if salary_tag else "Зарплата не указана"
-        city_tag = vacance_tag.select("div.vacancy-serp-item__info > div.bloko-text")
-        city = (city_tag[0].text).split(',')[0]
-        
-        response = requests.get(link_1, headers=gen_headers())
-        if response.status_code == 200:
-            vacance_html = response.text
-            vacance_soup = BeautifulSoup(vacance_html, "lxml")
-            company_tag = vacance_soup.find("span", class_="vacancy-company-name")
-            company = company_tag.text.strip().replace('\xa0', ' ') if company_tag else "Компания не занрузилась"
-            print('company', company, 'salary', salary)
-            
-            skills = []
-            skill_list = vacance_soup.find_all("div", class_="bloko-tag-list")
-            for skill in skill_list:
-                skill_text = skill.text
-            
-            if "django" in skill_text.lower() or "flask" in skill_text.lower():
-                count += 1
-                print("Yes!!!", count)
-                print('salary', salary)
-                # salary.replace('₽', 'руб.')
-                # salary.replace('$', 'USD')
-                pattern = '\₽'
-                salary = re.sub(pattern, 'руб.', salary)
-                pattern = '\$'
-                salary= re.sub(pattern, 'USD', salary)
-                print('salary after replace', salary)
-                
-                vacance_dict = {
-                    "title": title,
-                    "City": city,
-                    "company": company,
-                    "salary": salary,
-                    "link": link_1,
-                    }
-                print(vacance_dict)
-                vacancies_parsed.append(vacance_dict)
-        else:
-            print(f"проблемная ссылка на вакансию {title}")
+if __name__ == '__main__':
+    response = requests.get("https://spb.hh.ru/search/vacancy?text=python&area=1&area=2", headers=gen_headers())
     
-    print(f"Найдено {count} вакансий для ключевых навыков django или flask")
-    print('в файл загружено вакансий: ', len(vacancies_parsed))
-    pprint(vacancies_parsed)
-    file_path = os.path.join(os.getcwd(), 'vacancies.json')
-    with open(file_path, 'w') as f:
-        json.dump(vacancies_parsed, f, ensure_ascii=False, indent=4)
-        # json.dump(vacancies_parsed, f, ensure_ascii=False, indent=4)
-else:
-    print("проблема с подключением к сайту поиска")
+    if response.status_code == 200:
+        main_html = response.text
+        main_soup = BeautifulSoup(main_html, "lxml")
+        vacancies_list_tag = main_soup.find("main", class_="vacancy-serp-content")
+        vacancies_tags = vacancies_list_tag.find_all(class_="vacancy-serp-item-body")
+        vacancies_parsed = []
+        count = 0
+        for vacance_tag in vacancies_tags:
+            h3_tag = vacance_tag.find("h3", class_="bloko-header-section-3")
+            a_tag = h3_tag.find("a")
+            link_1 = a_tag["href"]
+            print('link:', link_1)
+            title = h3_tag.text.strip() if h3_tag else "название vacance не загрузилось"
+            salary_tag = vacance_tag.find("span", class_="bloko-header-section-2")
+            salary = salary_tag.text.strip().replace('\u202f', '').replace('\xa0', '') if salary_tag else "Зарплата не указана"
+            city_tag = vacance_tag.select("div.vacancy-serp-item__info > div.bloko-text")
+            city = (city_tag[0].text).split(',')[0]
+            
+            response = requests.get(link_1, headers=gen_headers())
+            
+            if response.status_code == 200:
+                vacance_html = response.text
+                vacance_soup = BeautifulSoup(vacance_html, "lxml")
+                company_tag = vacance_soup.find("span", class_="vacancy-company-name")
+                company = company_tag.text.strip().replace('\xa0', ' ') if company_tag else "Компания не занрузилась"
+                print('company', company, 'salary', salary)
+                
+                skills = []
+                skill_list = vacance_soup.find_all("div", class_="bloko-tag-list")
+                for skill in skill_list:
+                    skill_text = skill.text
+                
+                if "django" in skill_text.lower() or "flask" in skill_text.lower():
+                    count += 1
+                    print("Yes!!!", count)
+                    pattern = '\₽'
+                    salary = re.sub(pattern, 'руб.', salary)
+                    pattern = '\$'
+                    salary= re.sub(pattern, 'USD', salary)
+                    vacance_dict = {
+                        "title": title,
+                        "City": city,
+                        "company": company,
+                        "salary": salary,
+                        "link": link_1,
+                        }
+                    print(vacance_dict)
+                    vacancies_parsed.append(vacance_dict)
+            else:
+                print(f"проблемная ссылка на вакансию {title}")
+        
+        print(f"Найдено {count} вакансий для ключевых навыков django или flask")
+        print('в файл загружено вакансий: ', len(vacancies_parsed))
+        pprint(vacancies_parsed)
+        file_path = os.path.join(os.getcwd(), 'vacancies.json')
+        with open(file_path, 'w') as f:
+            json.dump(vacancies_parsed, f, ensure_ascii=False, indent=4)
+    else:
+        print("проблема с подключением к сайту HH")
