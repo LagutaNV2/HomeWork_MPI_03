@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Senior Python Developer",
+        "City": "Москва",
+        "company": "ООО Бристоль, сеть магазинов",
+        "salary": "Зарплата не указана",
+        "link": "https://spb.hh.ru/vacancy/91460286?query=python&hhtmFrom=vacancy_search_list"
+    },
+    {
+        "title": "Python Developer (Tools)",
+        "City": "Москва",
+        "company": "Lesta Games",
+        "salary": "Зарплата не указана",
+        "link": "https://spb.hh.ru/vacancy/93804537?query=python&hhtmFrom=vacancy_search_list"
+    },
+    {
+        "title": "Software Developer Python",
+        "City": "Москва",
+        "company": "ООО ВЕБ Инфраструктура",
+        "salary": "80000 – 200000 руб.",
+        "link": "https://spb.hh.ru/vacancy/92696470?query=python&hhtmFrom=vacancy_search_list"
+    },
+    {
+        "title": "Программист-разработчик Python",
+        "City": "Москва",
+        "company": "Красное & Белое, розничная сеть",
+        "salary": "Зарплата не указана",
+        "link": "https://spb.hh.ru/vacancy/93528925?query=python&hhtmFrom=vacancy_search_list"
+    }
+]
