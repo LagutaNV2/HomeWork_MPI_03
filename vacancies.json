@@ -1,44 +1,37 @@
 [
     {
-        "title": "Senior Python Developer",
-        "City": "Москва",
-        "company": "ООО Бристоль, сеть магазинов",
-        "salary": "Зарплата не указана",
-        "link": "https://spb.hh.ru/vacancy/91460286?query=python&hhtmFrom=vacancy_search_list"
+        "title": "Python developer",
+        "City": "РњРѕСЃРєРІР°",
+        "company": "MIA Dev",
+        "salary": "250000 вЂ“ 320000 СЂСѓР±.",
+        "link": "https://spb.hh.ru/vacancy/93048944?query=python&hhtmFrom=vacancy_search_list"
     },
     {
-        "title": "Python Developer (Tools)",
-        "City": "Москва",
-        "company": "Lesta Games",
-        "salary": "Зарплата не указана",
-        "link": "https://spb.hh.ru/vacancy/93804537?query=python&hhtmFrom=vacancy_search_list"
+        "title": "Senior backend developer (Python)",
+        "City": "РњРѕСЃРєРІР°",
+        "company": "РђРћ Р Р°РјР°РєСЃ РРЅС‚РµСЂРЅРµР№С€РЅР»",
+        "salary": "Р—Р°СЂРїР»Р°С‚Р° РЅРµ СѓРєР°Р·Р°РЅР°",
+        "link": "https://spb.hh.ru/vacancy/93486905?query=python&hhtmFrom=vacancy_search_list"
     },
     {
-        "title": "Software Developer Python",
-        "City": "Москва",
-        "company": "ООО ВЕБ Инфраструктура",
-        "salary": "80000 – 200000 руб.",
-        "link": "https://spb.hh.ru/vacancy/92696470?query=python&hhtmFrom=vacancy_search_list"
+        "title": "Fullstack-СЂР°Р·СЂР°Р±РѕС‚С‡РёРє (Python, JS)",
+        "City": "РњРѕСЃРєРІР°",
+        "company": "РћРћРћ Р“РџРњ РџР°СЂС‚РЅРµСЂ",
+        "salary": "Р—Р°СЂРїР»Р°С‚Р° РЅРµ СѓРєР°Р·Р°РЅР°",
+        "link": "https://spb.hh.ru/vacancy/94079348?query=python&hhtmFrom=vacancy_search_list"
     },
     {
-        "title": "Senior Backend developer Python",
-        "City": "Москва",
-        "company": "Tripster",
-        "salary": "Зарплата не указана",
-        "link": "https://spb.hh.ru/vacancy/94052973?query=python&hhtmFrom=vacancy_search_list"
+        "title": "Р‘СЌРєРµРЅРґ СЂР°Р·СЂР°Р±РѕС‚С‡РёРє (Python, Go)",
+        "City": "РњРѕСЃРєРІР°",
+        "company": "Р’РєСѓСЃРЅРѕ вЂ” Рё С‚РѕС‡РєР°",
+        "salary": "Р—Р°СЂРїР»Р°С‚Р° РЅРµ СѓРєР°Р·Р°РЅР°",
+        "link": "https://spb.hh.ru/vacancy/89748432?query=python&hhtmFrom=vacancy_search_list"
     },
     {
-        "title": "Senior Backend developer Python",
-        "City": "Санкт-Петербург",
-        "company": "Tripster",
-        "salary": "Зарплата не указана",
-        "link": "https://spb.hh.ru/vacancy/94052974?query=python&hhtmFrom=vacancy_search_list"
-    },
-    {
-        "title": "Программист-разработчик Python",
-        "City": "Москва",
-        "company": "Красное & Белое, розничная сеть",
-        "salary": "Зарплата не указана",
-        "link": "https://spb.hh.ru/vacancy/93528925?query=python&hhtmFrom=vacancy_search_list"
+        "title": "Р Р°Р·СЂР°Р±РѕС‚С‡РёРє Python",
+        "City": "РњРѕСЃРєРІР°",
+        "company": "РћРћРћ РРЅСЃРїРµРєС‚РѕСЂ РљР»Р°СѓРґ",
+        "salary": "120000 вЂ“ 200000 СЂСѓР±.",
+        "link": "https://spb.hh.ru/vacancy/93239877?query=python&hhtmFrom=vacancy_search_list"
     }
 ]

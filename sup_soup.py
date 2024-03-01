@@ -83,7 +83,7 @@ if __name__ == '__main__':
         print('в файл загружено вакансий: ', len(vacancies_parsed))
         pprint(vacancies_parsed)
         file_path = os.path.join(os.getcwd(), 'vacancies.json')
-        with open(file_path, 'w') as f:
+        with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(vacancies_parsed, f, ensure_ascii=False, indent=4)
     else:
         print("проблема с подключением к сайту HH")
